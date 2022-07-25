@@ -1,0 +1,89 @@
+
+:root{
+    --pro-head-side:3.5rem;
+}
+.header{
+    width: 100%;
+    padding: 0.75rem;
+    min-height: 4.5rem;
+}
+.home-logo{
+    width: 7rem;
+    height: 3rem;
+}
+.feed-page{
+    width: 100%;
+    height: 100%;
+}
+.feed-wrapper{
+    height: calc(100% - 7.5rem);
+    overflow-y: scroll;
+}
+.feed-wrapper::-webkit-scrollbar{
+    display: none;
+}
+.feed-card{
+    width: 100%;
+}
+.card-header{
+    width: 100%;
+    padding: 0.4rem;
+    display: flex;
+}
+.card-header>img{
+    width: var(--pro-head-side);
+    border-radius: 50%;
+}
+.header-info{
+    height: var(--pro-head-side);
+}
+.header-info>div{
+    height: calc(var(--pro-head-side)/2);
+    padding-left: 10px;
+}
+.username{
+    font-size: 1rem;
+    font-weight: bold;
+    padding-top: 5px;
+}
+.location{
+    font-size: 0.7rem;
+    padding-bottom: 5px;
+}
+.card-post{
+    width: 100%;
+}
+.post-picture{
+    width: 100%;
+}
+
+.icon-container{
+    width: 100%;
+    display: flex;
+    padding:0.5rem 0 0 1rem;
+}
+.icons{
+    width: 1.8rem;
+    margin-right: 0.4rem;
+}
+.likes-count{
+    font-weight: bold;
+    padding-left: 1rem;
+}
+.caption-container{
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 3rem;
+    height: 3rem;
+    overflow-y: hidden;
+    position: relative;
+    font-size: 0.8rem;
+}
+.more-btn{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: gray;
+    font-size: 0.7rem;
+    cursor: pointer;
+}

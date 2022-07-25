@@ -1,0 +1,73 @@
+.container{
+    width: 90%;
+    padding: 1rem auto;
+    margin: 7rem auto 0;
+}
+.logo{
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 14rem;
+}
+.login-form>form>input,div>input{
+    display: block;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 1rem;
+    border: solid gray;
+    border-radius: 6px;
+    padding-left: 1rem;
+}
+.login-form>form>input:last-child{
+    background-color: #3897f1;
+    border: none;
+    padding-left: 0 !important;
+    font-size: 1.2rem;
+    color: white;
+}
+.login-form>form>input:last-child:active{
+    background-color: #74b5f2;
+}
+.pwd-box{
+    position: relative;
+}
+.pwd-eye{
+    position: absolute;
+    width: 1.5rem;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.line{
+    width: 100%;
+    height: 0.2rem;
+    background-color: gray;
+    position: relative;
+}
+.line::after{
+    content: "OR";
+    width: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+}
+.signup{
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+    color: gray;
+}
+.dark-font{
+    color: black;
+    font-weight: bold;
+}
