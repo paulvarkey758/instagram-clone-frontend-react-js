@@ -1,3 +1,43 @@
 .container{
     margin-top: 3rem;
+    position: relative;
+}
+.error-msg{
+    font-size: 0.6rem;
+    color: red;
+    display: none;
+}
+.show-error{
+    display: block;
+}
+.registered {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+     display: none; 
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+.registered>div{
+    color: green;
+}
+.registered>div>img{
+    width: 5rem;
+    display: block;
+    margin:2rem auto;
+}
+.registerd-btn{
+    padding: 0.5rem;
+    margin: auto;
+    display: block;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+.link{
+    text-decoration: none;
 }

@@ -5,19 +5,35 @@ import SignUp from './Components/Login/SignUp';
 import FeedPage from './Components/Feed/FeedPage';
 import ProfilePage from './Components/Profile/ProfilePage';
 import {BrowserRouter as Router,Routes,Link,Route} from 'react-router-dom'
+import {userContext} from './Components/Context';
+import {useState} from 'react';
 
 function App() {
+  const [user,setUser]=useState()
+  var userData=localStorage.getItem("user")
+  console.log(userData)
+  var usr
+  if(userData!=="undefined" && userData!==null){
+    usr=JSON.parse(userData)
+  }
+  else{
+    usr=userData
+  }
+  console.log(usr)
+  
+  
   return (
     <div className="App">
       <div className="frame">
-        <Router>
-          <Routes>
-            <Route path='/' element={<Login/>} />
-            <Route path='/register' element={<SignUp/>} />
-            <Route path='/home' element={<FeedPage/>} />
-            <Route path='/profile' element={<ProfilePage/>} />
-          </Routes>
-        </Router>
+        <userContext.Provider value={usr}>
+          <Router>
+            <Routes>
+              <Route path='/' element={usr!=="undefined"&&usr!==null?<FeedPage/>:<Login/>} /> 
+              <Route path='/register' element={<SignUp/>} />
+              <Route path='/profile' element={<ProfilePage/>} />
+            </Routes>
+          </Router>
+        </userContext.Provider>
       </div>
     </div>
   );

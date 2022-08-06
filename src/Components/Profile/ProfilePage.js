@@ -4,17 +4,38 @@ import '../Footer/Footer.css';
 import './ProfilePage.css';
 import Footer from '../Footer/Footer';
 import ProfileCard from './ProfileCard';
+import {userContext} from '../Context';
+import {useContext,useEffect,useState} from 'react';
+import axios from 'axios';
 
 function ProfilePage() {
+  const user=useContext(userContext)
+  console.log(user)
+  const [posts,setPosts]=useState([])
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8000/api/fetch-profile/${user.token}/`).then((resp)=>{
+      setPosts(resp.data);
+    }).catch((err)=>{
+      console.log("Error while fetching posts");
+    })
+  },[])
+
+  const handleLogout=()=>{
+    localStorage.setItem("user",JSON.stringify())
+    console.log("clicked")
+    window.location="/"
+    console.log(localStorage.getItem("user"))
+  }
   return (
     <div className='profile-page'>
       <div className="header">
-        <h2 className="profile-username">User_name</h2>
+        <h2 className="profile-username">{user.username}</h2>
       </div>
       <div className="feed-wrapper">
         <div className="pro-details">
             <div className="profile-pic">
-                <img src="/images/profile-pic.png" alt="" />
+                <img src={`http://localhost:8000${user.profilePic}`} alt="" />
             </div>
             <div className="details">
                 <div>
@@ -32,22 +53,19 @@ function ProfilePage() {
             </div>
         </div>
         <div className="bio-box">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dicta labore earum optio, dolorum sint.</p>
+                <p>{user.bio}</p>
                 
         </div>
         <div className="edit-btn">Edit Profile</div>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
-        <ProfileCard/>
+        <div className="edit-btn" onClick={()=>handleLogout()}>Log Out</div>
+        {
+          posts.map((obj,index)=>{
+            return(
+              <ProfileCard object={obj}/>
+            )
+          })
+        }
+        
         </div>
       <Footer/>
     </div>

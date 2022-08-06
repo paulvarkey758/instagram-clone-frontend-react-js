@@ -6,7 +6,7 @@ import {BrowserRouter as Router,Link} from 'react-router-dom';
 function Footer() {
   return (
     <div className='footer'>
-      <Link to="/home"><FooterButton image="home-icon" /></Link>
+      <Link to="/"><FooterButton image="home-icon" /></Link>
       <FooterButton image="search-icon" />
       <FooterButton image="add-icon" />
       <FooterButton image="like-icon" />

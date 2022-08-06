@@ -1,9 +1,23 @@
 import React from 'react'
 import './Feed.css';
 import '../../App.css';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
+import axios from 'axios';
 
-function FeedCard() {
+function FeedCard(props) {
+
+  const [user,setUser]=useState({"username":"user"})
+  useEffect(()=>{
+    axios.get('http://localhost:8000/api/show/').then((resp)=>{
+      console.log(resp.data)
+      resp.data.map((uobj,index)=>{
+        if(uobj.id===props.object.user){
+          setUser(uobj)
+        }
+      })
+    })
+  },[])
+  console.log(user)
   const [showCaptions,setShowCaptions]=useState(true);
 
   const showCaption=(e)=>{
@@ -24,14 +38,14 @@ function FeedCard() {
     <div>
       <div className="feed-card">
         <div className="card-header">
-            <img src="/images/profile-pic.png" alt="" className="pro-pic" />
+            <img src={`http://localhost:8000${user.profilePic}`} alt="" className="pro-pic" />
             <div className="header-info">
-                <div className="username">User_name</div>
-                <div className="location">Location</div>
+                <div className="username">{user.username}</div>
+                <div className="location">{props.object.location}</div>
             </div>
         </div>
         <div className="card-post">
-          <img src="/images/picture.jpg" alt="" className="post-picture" />
+          <img src={`http://localhost:8000${props.object.post}`} alt="" className="post-picture" />
         </div>
         <div className="icon-container">
           <img src="/images/like-icon.png" alt="" className="icons" />
@@ -40,7 +54,7 @@ function FeedCard() {
         </div>
         <div className="likes-count">1,500 likes</div>
         <div className="caption-container">
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, doloremque. At accusantium tempora sunt cumque, molestiae ad. Cum dolorum optio excepturi accusantium aperiam, doloribus at.</p>
+          <p>{props.object.caption}</p>
           <div className="more-btn" onClick={(e)=>showCaption(e)}>more...</div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 .container{
-    width: 90%;
+    width: 95%;
     padding: 1rem auto;
     margin: 7rem auto 0;
+    position: relative;
 }
 .logo{
     width: 100%;
@@ -70,4 +71,33 @@
 .dark-font{
     color: black;
     font-weight: bold;
+}
+.log-failed {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+     display: none; 
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.log-failed>div{
+    color: red;
+}
+.log-failed>div>img{
+    width: 5rem;
+    display: block;
+    margin:2rem auto;
+}
+.log-failed-btn{
+    padding: 0.5rem;
+    margin: auto;
+    display: block;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
 }
