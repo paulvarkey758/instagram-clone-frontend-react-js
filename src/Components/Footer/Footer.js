@@ -8,7 +8,7 @@ function Footer() {
     <div className='footer'>
       <Link to="/"><FooterButton image="home-icon" /></Link>
       <FooterButton image="search-icon" />
-      <FooterButton image="add-icon" />
+      <Link to="/newpost"><FooterButton image="add-icon" /></Link>
       <FooterButton image="like-icon" />
       <Link to="/profile"><FooterButton image="profile-icon" /></Link>
     </div>
