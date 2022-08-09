@@ -5,6 +5,7 @@ import SignUp from './Components/Login/SignUp';
 import FeedPage from './Components/Feed/FeedPage';
 import NewPost from './Components/NewPost/NewPost';
 import ProfilePage from './Components/Profile/ProfilePage';
+import EditProfile from './Components/Profile/EditProfile';
 import {BrowserRouter as Router,Routes,Link,Route} from 'react-router-dom'
 import {userContext} from './Components/Context';
 import {useState} from 'react';
@@ -33,6 +34,7 @@ function App() {
               <Route path='/register' element={<SignUp/>} />
               <Route path='/profile' element={<ProfilePage/>} />
               <Route path='/newpost' element={<NewPost/>} />
+              <Route path='/editprofile' element={<EditProfile/>} />
             </Routes>
           </Router>
         </userContext.Provider>

@@ -7,6 +7,7 @@ import ProfileCard from './ProfileCard';
 import {userContext} from '../Context';
 import {useContext,useEffect,useState} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom"
 
 function ProfilePage() {
   const user=useContext(userContext)
@@ -56,7 +57,7 @@ function ProfilePage() {
                 <p>{user.bio}</p>
                 
         </div>
-        <div className="edit-btn">Edit Profile</div>
+        <Link to="/editprofile" className='link'><div className="edit-btn">Edit Profile</div></Link>
         <div className="edit-btn" onClick={()=>handleLogout()}>Log Out</div>
         {
           posts.map((obj,index)=>{

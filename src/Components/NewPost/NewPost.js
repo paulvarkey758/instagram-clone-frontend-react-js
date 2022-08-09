@@ -39,7 +39,7 @@ function NewPost() {
       <div className="add-container">
         <form action="">
             <input type="file" name="inputFile" id="inputFile" onChange={(e)=>setPost({"picture":e.target.files[0]})} />
-            <label htmlFor="inputFile"><div className="post-div"><img src="/images/upload-image.png" /></div></label>
+            <label htmlFor="inputFile"><div className="post-div"><img src={post.picture?URL.createObjectURL(post.picture):"/images/upload-image.png"} /></div></label>
             <input type="text" name="location" id="" placeholder='Location' onChange={(e)=>setPost({...post,"location":e.target.value})} value={post.location} />
             <input type="text" name="caption" placeholder="Caption" onChange={(e)=>setPost({...post,"caption":e.target.value})} value={post.caption} />
             <div className="post-error-msg" id='postErrMsg'>upload a picture before posting</div>
